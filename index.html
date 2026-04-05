@@ -24,19 +24,19 @@ a{text-decoration:none;color:inherit;}
 img{display:block;max-width:100%;height:auto;}
 .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
 
-/* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:13px 26px;cursor:pointer;transition:all var(--tr);white-space:nowrap;border:none;text-decoration:none;border-radius:var(--r-sm);}
+/* BUTTONS — diagonal corners: top-left + bottom-right rounded */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:13px 26px;cursor:pointer;transition:all var(--tr);white-space:nowrap;border:none;text-decoration:none;border-radius:14px 0 14px 0;}
 .btn-volt{background:var(--volt);color:var(--ink);}
 .btn-volt:hover{background:var(--volt-lt);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,196,0,.35);}
-.btn-outline-w{background:transparent;border:2px solid rgba(255,255,255,.4);color:#fff;border-radius:var(--r-sm);}
+.btn-outline-w{background:transparent;border:2px solid rgba(255,255,255,.4);color:#fff;border-radius:14px 0 14px 0;}
 .btn-outline-w:hover{background:rgba(255,255,255,.1);transform:translateY(-1px);}
-.btn-outline-volt{background:transparent;border:2px solid var(--volt);color:var(--volt);border-radius:var(--r-sm);}
+.btn-outline-volt{background:transparent;border:2px solid var(--volt);color:var(--volt);border-radius:14px 0 14px 0;}
 .btn-outline-volt:hover{background:var(--volt);color:var(--ink);}
 .btn-full{width:100%;justify-content:center;}
 .btn-lg{padding:16px 34px;font-size:.88rem;}
 
-/* DEMO BADGE */
-.demo-badge{position:fixed;top:70px;right:0;z-index:9999;background:var(--volt);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-size:.56rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:7px 12px 7px 10px;border-radius:8px 0 0 8px;}
+/* DEMO BADGE — red */
+.demo-badge{position:fixed;top:70px;right:0;z-index:9999;background:#dc2626;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.56rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:7px 12px 7px 10px;border-radius:8px 0 0 8px;box-shadow:-2px 2px 12px rgba(220,38,38,.4);}
 
 /* ANNOUNCE */
 .announce{background:var(--volt);padding:9px 20px;text-align:center;}
@@ -52,7 +52,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .nav-brand-name{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.1em;color:#fff;}
 .nav-brand-sub{font-family:'Barlow Condensed',sans-serif;font-size:.48rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);}
 .nav-links{display:flex;gap:1.8rem;list-style:none;}
-.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);transition:color var(--tr);}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);transition:color var(--tr);cursor:pointer;}
 .nav-links a:hover{color:var(--volt);}
 .nav-right{display:flex;align-items:center;gap:8px;}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
@@ -60,7 +60,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .drawer{display:none;position:fixed;inset:0;background:var(--ink2);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;}
 .drawer.open{display:flex;}
 .drawer-close{position:absolute;top:20px;right:20px;background:none;border:none;font-size:2rem;cursor:pointer;color:rgba(255,255,255,.4);}
-.drawer a{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:.1em;color:rgba(255,255,255,.8);}
+.drawer a{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:.1em;color:rgba(255,255,255,.8);cursor:pointer;}
 .drawer a:hover{color:var(--volt-lt);}
 
 /* HERO VIDEO */
@@ -72,26 +72,20 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .hero-glow{position:absolute;bottom:-60px;left:-60px;width:700px;height:500px;background:radial-gradient(ellipse,rgba(245,196,0,.12) 0%,transparent 65%);z-index:2;pointer-events:none;}
 .hero-circuit{position:absolute;inset:0;z-index:2;opacity:.025;background-image:linear-gradient(rgba(245,196,0,1) 1px,transparent 1px),linear-gradient(90deg,rgba(245,196,0,1) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;}
 .hero-accent{position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(to bottom,var(--volt) 0%,var(--blue-lt) 60%,transparent 100%);z-index:3;}
-
 .hero-inner{position:relative;z-index:4;width:100%;padding:120px 24px 80px;max-width:1200px;margin:0 auto;}
 .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:center;}
-
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,196,0,.1);border:1.5px solid rgba(245,196,0,.28);padding:7px 16px;margin-bottom:20px;border-radius:var(--r-sm);}
 .hero-badge-stars{color:var(--volt);letter-spacing:2px;}
 .hero-badge span{font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--volt-lt);}
-
 .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
 .hero-line{width:36px;height:2px;background:var(--volt);border-radius:2px;}
 .hero-eyebrow span{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.35);}
-
 .hero-title{font-family:'Bebas Neue',sans-serif;line-height:.86;letter-spacing:.03em;font-size:clamp(3.5rem,8vw,9rem);color:#fff;margin-bottom:8px;}
 .hero-title .av{color:var(--volt-lt);}
 .hero-title .ab{color:var(--blue-lt);}
-
 .hero-loc{font-size:.88rem;font-style:italic;color:rgba(255,255,255,.28);margin-bottom:20px;letter-spacing:.04em;}
 .hero-sub{font-size:.97rem;font-weight:300;color:rgba(255,255,255,.58);max-width:500px;line-height:1.88;margin-bottom:28px;}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;}
-
 .htbar{display:flex;align-items:center;gap:16px;padding:13px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--volt);flex-wrap:wrap;border-radius:0 var(--r-sm) var(--r-sm) 0;}
 .htbar-item{display:flex;align-items:center;gap:7px;font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.5);white-space:nowrap;}
 .htbar-div{width:1px;height:14px;background:rgba(255,255,255,.12);}
@@ -109,6 +103,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .fg input:focus,.fg select:focus{border-color:var(--volt);}
 .fg select option{background:#0d1018;color:#fff;}
 .hqcard-note{text-align:center;margin-top:10px;font-size:.6rem;color:rgba(255,255,255,.16);}
+.success-msg{display:none;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:700;color:var(--volt-lt);letter-spacing:.06em;text-align:center;}
 
 /* WAVE */
 .wave-bottom{position:absolute;bottom:-2px;left:0;right:0;z-index:5;pointer-events:none;}
@@ -154,7 +149,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .exp-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:6px;}
 .exp-desc{font-size:.77rem;color:rgba(255,255,255,.42);line-height:1.62;}
 
-/* OFFERS — Seatown inspo */
+/* OFFERS */
 .offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .offer-card{background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1.5px solid var(--mid);transition:all var(--tr);}
 .offer-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.12);}
@@ -175,13 +170,13 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .svc-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s ease;}
 .svc-card:hover .svc-img{transform:scale(1.06);}
 .svc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,6,12,.97) 0%,rgba(4,6,12,.5) 55%,transparent 100%);}
-.svc-tag{position:absolute;top:16px;left:16px;z-index:3;background:var(--volt);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-size:.52rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;border-radius:6px;}
+.svc-tag{position:absolute;top:16px;left:16px;z-index:3;background:var(--volt);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-size:.52rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;border-radius:14px 0 14px 0;}
 .svc-content{position:relative;z-index:2;padding:22px;}
 .svc-num{font-family:'Bebas Neue',sans-serif;font-size:.68rem;letter-spacing:.3em;color:var(--volt-lt);margin-bottom:4px;opacity:.38;}
 .svc-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:6px;}
 .svc-card.featured .svc-name{font-size:2.8rem;}
 .svc-desc{font-size:.81rem;font-weight:300;color:rgba(255,255,255,.52);line-height:1.66;margin-bottom:10px;}
-.svc-link{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--volt-lt);}
+.svc-link{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--volt-lt);cursor:pointer;background:none;border:none;padding:0;}
 
 /* PHOTO GRID */
 .photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
@@ -191,20 +186,23 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .photo-tile.tall img{height:310px;}
 .photo-tile-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(4,6,12,.88),transparent);padding:18px 14px 14px;font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);}
 
-/* VIDEO SECTION */
+/* VIDEO SECTIONS — portrait format, no resize */
 .vid-section{padding:80px 0;background:var(--ink2);}
 .vid-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
 .vid-grid.flip{direction:rtl;}
-.vid-grid.flip > *{direction:ltr;}
-.vid-container{border-radius:var(--r-xl);overflow:hidden;position:relative;background:var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.6);}
-.vid-container video{width:100%;display:block;border-radius:var(--r-xl);}
+.vid-grid.flip>*{direction:ltr;}
+
+/* Portrait video wrapper — locked to 9:16, never goes horizontal */
+.vid-wrap-portrait{position:relative;width:100%;max-width:280px;margin:0 auto;}
+.vid-wrap-portrait video{width:100%;display:block;border-radius:var(--r-xl);box-shadow:0 24px 60px rgba(0,0,0,.6);border:2px solid rgba(245,196,0,.12);aspect-ratio:9/16;object-fit:cover;}
+.vid-badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--volt);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-size:.52rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:4px 10px;border-radius:14px 0 14px 0;}
+
 .vid-content{}
 .vid-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
 .vid-eyebrow-line{width:28px;height:2px;background:var(--volt);border-radius:2px;}
 .vid-eyebrow span{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);}
 .vid-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.8rem);line-height:.88;letter-spacing:.03em;text-transform:uppercase;color:#fff;margin-bottom:16px;}
 .vid-title .av{color:var(--volt-lt);}
-.vid-title .ab{color:var(--blue-lt);}
 .vid-body{font-size:.94rem;font-weight:300;color:rgba(255,255,255,.52);line-height:1.85;margin-bottom:22px;}
 .vid-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
 .vid-list-item{display:flex;align-items:flex-start;gap:12px;font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.5;}
@@ -231,7 +229,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .rating-stars-row{display:flex;gap:4px;margin-bottom:5px;}
 .rat-p{display:flex;gap:8px;flex-wrap:wrap;}
 .rat-badge{background:rgba(245,196,0,.1);border:1px solid rgba(245,196,0,.2);color:var(--volt-lt);font-family:'Barlow Condensed',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:6px;}
-.rat-right{margin-left:auto;background:var(--volt);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:8px;}
+.rat-right{margin-left:auto;background:var(--volt);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:14px 0 14px 0;}
 
 /* SVC LIST */
 .svc-list-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
@@ -286,13 +284,14 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .area-tag{background:#fff;border:1.5px solid var(--mid);padding:10px 14px;border-radius:var(--r-sm);font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;transition:all var(--tr);}
 .area-tag:hover{border-color:var(--volt-dk);color:var(--volt-dk);background:rgba(245,196,0,.04);}
 
-/* EV VIDEO END SECTION */
+/* EV VIDEO SECTION */
 .ev-section{padding:80px 0;background:var(--ink);position:relative;overflow:hidden;}
 .ev-section::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(245,196,0,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(245,196,0,.03) 1px,transparent 1px);background-size:56px 56px;pointer-events:none;}
 .ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1;}
-.ev-vid-wrap{border-radius:var(--r-xl);overflow:hidden;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.7);border:2px solid rgba(245,196,0,.15);}
-.ev-vid-wrap video{width:100%;display:block;}
-.ev-vid-badge{position:absolute;top:16px;left:16px;background:var(--volt);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-size:.54rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;border-radius:6px;}
+/* EV video also portrait */
+.ev-vid-wrap{position:relative;width:100%;max-width:280px;margin:0 auto;}
+.ev-vid-wrap video{width:100%;display:block;border-radius:var(--r-xl);box-shadow:0 24px 60px rgba(0,0,0,.7);border:2px solid rgba(245,196,0,.15);aspect-ratio:9/16;object-fit:cover;}
+.ev-vid-badge{position:absolute;top:16px;left:16px;z-index:2;background:var(--volt);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-size:.54rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;border-radius:14px 0 14px 0;}
 
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
@@ -305,7 +304,6 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .ci-icon{width:32px;height:32px;background:rgba(245,196,0,.1);display:flex;align-items:center;justify-content:center;color:var(--volt-dk);flex-shrink:0;border-radius:8px;}
 .ci-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--volt-dk);margin-bottom:1px;}
 .ci-val{font-size:.88rem;color:var(--ink);font-weight:500;}
-.ci-val a{color:var(--volt-dk);}
 .cform{background:#fff;border-top:4px solid var(--volt);box-shadow:0 8px 40px rgba(0,0,0,.08);border-radius:var(--r-xl);overflow:hidden;}
 .cform-head{background:linear-gradient(135deg,#8a6600,var(--volt));padding:22px 26px;}
 .cform-head h3{font-family:'Barlow Condensed',sans-serif;font-size:.96rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);}
@@ -318,7 +316,31 @@ nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px so
 .est-fg textarea{resize:none;min-height:88px;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .form-note{text-align:center;margin-top:8px;font-size:.58rem;color:var(--muted);}
-.success-msg{display:none;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;color:var(--volt-dk);letter-spacing:.06em;}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.gallery-item{border-radius:var(--r-lg);overflow:hidden;position:relative;cursor:pointer;}
+.gallery-item.wide{grid-column:span 2;}
+.gallery-item img{width:100%;height:260px;object-fit:cover;display:block;transition:transform .6s ease;}
+.gallery-item.wide img{height:300px;}
+.gallery-item:hover img{transform:scale(1.05);}
+.gallery-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,6,12,.92) 0%,transparent 55%);opacity:0;transition:opacity var(--tr);}
+.gallery-item:hover .gallery-ov{opacity:1;}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:18px 16px 14px;transform:translateY(8px);transition:transform var(--tr);opacity:0;}
+.gallery-item:hover .gallery-caption{opacity:1;transform:translateY(0);}
+.gallery-caption h4{font-family:'Barlow Condensed',sans-serif;font-size:.84rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin-bottom:2px;}
+.gallery-caption p{font-size:.7rem;color:rgba(255,255,255,.55);}
+
+/* LIGHTBOX */
+.lb-overlay{display:none;position:fixed;inset:0;background:rgba(4,6,12,.94);z-index:1000;align-items:center;justify-content:center;padding:20px;}
+.lb-overlay.open{display:flex;}
+.lb-box{position:relative;max-width:90vw;max-height:90vh;}
+.lb-box img{display:block;max-width:88vw;max-height:82vh;object-fit:contain;border-radius:var(--r-lg);}
+.lb-info{margin-top:12px;text-align:center;}
+.lb-info h4{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fff;}
+.lb-info p{font-size:.76rem;color:rgba(255,255,255,.5);margin-top:3px;}
+.lb-close{position:absolute;top:-14px;right:-14px;width:36px;height:36px;background:var(--volt);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:1.2rem;font-weight:700;line-height:1;}
+.lb-close:hover{background:var(--volt-lt);}
 
 /* FOOTER CTA */
 .footer-cta{background:var(--ink2);padding:28px 0;border-top:4px solid var(--volt);}
@@ -335,24 +357,22 @@ footer{background:var(--ink);}
 .footer-desc{font-size:.8rem;color:rgba(255,255,255,.22);line-height:1.85;max-width:250px;margin-bottom:14px;}
 .footer-col-title{font-family:'Barlow Condensed',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--volt-lt);margin-bottom:14px;}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
-.footer-links a{font-size:.8rem;color:rgba(255,255,255,.22);transition:color var(--tr);}
+.footer-links a{font-size:.8rem;color:rgba(255,255,255,.22);cursor:pointer;transition:color var(--tr);}
 .footer-links a:hover{color:var(--silver-lt);}
 .footer-contacts{list-style:none;display:flex;flex-direction:column;gap:10px;}
 .footer-contacts li{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;color:rgba(255,255,255,.22);line-height:1.55;}
 .footer-contacts li svg{flex-shrink:0;margin-top:2px;color:var(--volt-lt);}
-.footer-contacts a{color:rgba(255,255,255,.22);transition:color var(--tr);}
-.footer-contacts a:hover{color:var(--silver-lt);}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:20px 0;border-top:1px solid rgba(255,255,255,.05);}
 .footer-copy{font-size:.7rem;color:rgba(255,255,255,.12);}
 .footer-dev{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.12);}
+.footer-dev a{color:rgba(255,255,255,.22);}
 .footer-dev a:hover{color:var(--volt-lt);}
 
 .float-cta{position:fixed;bottom:22px;right:22px;z-index:150;display:none;}
 .float-cta.vis{display:block;}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .62s ease,transform .62s ease;}
-.reveal.in{opacity:1;transform:none;}
-
-@keyframes bolt-flicker{0%,100%{opacity:1;}44%{opacity:.3;}46%{opacity:1;}90%{opacity:.4;}92%{opacity:1;}}
+.reveal{opacity:1;transform:none;transition:opacity .62s ease,transform .62s ease;}
+.js-loaded .reveal{opacity:0;transform:translateY(26px);}
+.js-loaded .reveal.in{opacity:1;transform:none;}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
@@ -373,6 +393,8 @@ footer{background:var(--ink);}
 .vid-grid.flip{direction:ltr;}
 .ev-grid{grid-template-columns:1fr;gap:36px;}
 .offers-grid{grid-template-columns:1fr;}
+.gallery-grid{grid-template-columns:1fr 1fr;}
+.gallery-item.wide{grid-column:auto;}
 }
 @media(max-width:768px){
 .nav-links,.nav-right .btn:first-of-type{display:none;}
@@ -407,6 +429,9 @@ footer{background:var(--ink);}
 .areas-grid{grid-template-columns:repeat(3,1fr);}
 .vid-section{padding:56px 0;}
 .ev-section{padding:56px 0;}
+.gallery-grid{grid-template-columns:1fr;}
+.gallery-item.wide{grid-column:auto;}
+.gallery-item img,.gallery-item.wide img{height:220px;}
 }
 @media(max-width:480px){
 .stats-row{grid-template-columns:1fr;}
@@ -420,6 +445,7 @@ footer{background:var(--ink);}
 <body>
 
 <div class="demo-badge">Live Demo</div>
+
 <div class="float-cta" id="floatCta">
   <a href="#contact" class="btn btn-volt">
     <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
@@ -462,14 +488,13 @@ footer{background:var(--ink);}
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-right">
-      <a href="tel:+12062587504" class="btn btn-outline-w" style="padding:8px 16px;font-size:.66rem;">(206) 258-7504</a>
       <a href="#contact" class="btn btn-volt" style="padding:8px 16px;font-size:.66rem;">Free Quote</a>
       <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
-<!-- ==================== HERO VIDEO ==================== -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-video-wrap">
     <video autoplay muted loop playsinline preload="auto">
@@ -481,24 +506,17 @@ footer{background:var(--ink);}
   <div class="hero-circuit"></div>
   <div class="hero-glow"></div>
   <div class="hero-accent"></div>
-
   <div class="hero-inner">
     <div class="hero-grid">
       <div>
-        <div class="hero-badge">
-          <span class="hero-badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <span>78 Google &middot; 277 Thumbtack &middot; Top Pro</span>
-        </div>
+        <div class="hero-badge"><span class="hero-badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>78 Google &middot; 277 Thumbtack &middot; Top Pro</span></div>
         <div class="hero-eyebrow"><div class="hero-line"></div><span>Licensed &amp; Insured &middot; 29 Years Experience</span></div>
         <h1 class="hero-title">Spark<br><span class="av">Pro</span><br>Electric</h1>
         <p class="hero-loc">EV Chargers &middot; Panel Upgrades &middot; Generators &middot; Seattle, WA</p>
         <p class="hero-sub">Family-owned, licensed electricians in Seattle. Mohammed and his team deliver safe, clean, code-compliant work for 29 years. EV charger installs, panel upgrades, generators, and backup power. Done right the first time.</p>
         <div class="hero-btns">
-          <a href="tel:+12062587504" class="btn btn-volt btn-lg">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Call (206) 258-7504
-          </a>
-          <a href="#contact" class="btn btn-outline-w btn-lg">Get Free Estimate</a>
+          <a href="#contact" class="btn btn-volt btn-lg">Get a Free Estimate</a>
+          <a href="#services" class="btn btn-outline-w btn-lg">See Our Services</a>
         </div>
         <div class="htbar">
           <div class="htbar-item"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Licensed &amp; Insured</div>
@@ -510,8 +528,6 @@ footer{background:var(--ink);}
           <div class="htbar-item"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Greater Seattle Area</div>
         </div>
       </div>
-
-      <!-- QUOTE CARD -->
       <div class="hqcard">
         <div class="hqcard-head"><h3>Get a Free Estimate</h3><p>EV chargers &middot; Panel upgrades &middot; Generators &middot; All electrical</p></div>
         <div class="hqcard-body">
@@ -536,7 +552,6 @@ footer{background:var(--ink);}
       </div>
     </div>
   </div>
-
   <div class="wave-bottom">
     <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,60 L0,40 L120,20 L240,40 L360,15 L480,38 L600,10 L720,35 L840,14 L960,36 L1080,16 L1200,38 L1320,22 L1440,36 L1440,60 Z" fill="#fff"/></svg>
   </div>
@@ -544,19 +559,17 @@ footer{background:var(--ink);}
 
 <!-- TRUST STRIP -->
 <div class="trust-strip">
-  <div class="container">
-    <div class="trust-inner">
-      <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span class="t-text">Licensed &amp; Insured</span></div>
-      <div class="t-div"></div>
-      <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="t-text">EV Charger Experts</span></div>
-      <div class="t-div"></div>
-      <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span class="t-text">Family Owned &middot; 29 Years</span></div>
-      <div class="t-div"></div>
-      <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="t-text">Thumbtack Top Pro</span></div>
-      <div class="t-div"></div>
-      <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><span class="t-text">Greater Seattle Area</span></div>
-    </div>
-  </div>
+  <div class="container"><div class="trust-inner">
+    <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span class="t-text">Licensed &amp; Insured</span></div>
+    <div class="t-div"></div>
+    <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="t-text">EV Charger Experts</span></div>
+    <div class="t-div"></div>
+    <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span class="t-text">Family Owned &middot; 29 Years</span></div>
+    <div class="t-div"></div>
+    <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="t-text">Thumbtack Top Pro</span></div>
+    <div class="t-div"></div>
+    <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><span class="t-text">Greater Seattle Area</span></div>
+  </div></div>
 </div>
 
 <!-- MARQUEE -->
@@ -599,7 +612,7 @@ footer{background:var(--ink);}
   </div>
 </div>
 
-<!-- LIMITED TIME OFFERS — Seatown inspo -->
+<!-- OFFERS -->
 <section class="sec sec-white" id="offers">
   <div class="container">
     <div class="section-head reveal">
@@ -612,42 +625,27 @@ footer{background:var(--ink);}
         <div class="offer-tag"><div class="offer-label">Save</div>$50 Off</div>
         <div class="offer-body">
           <div class="offer-title">EV Charger Installation + Same Day Service</div>
-          <ul class="offer-list">
-            <li>We come to your home and assess the job</li>
-            <li>Visual analysis of your panel and garage setup</li>
-            <li>100% satisfaction guaranteed</li>
-            <li>No service call fees. No dispatch fees.</li>
-          </ul>
-          <a href="tel:+12062587504" class="btn btn-volt btn-full">Call Now &mdash; (206) 258-7504</a>
-          <div class="offer-cta" style="margin-top:12px;">Valid Mon-Fri, 7am-5pm. Mention this offer when calling.</div>
+          <ul class="offer-list"><li>We come to your home and assess the job</li><li>Visual analysis of your panel and garage setup</li><li>100% satisfaction guaranteed</li><li>No service call fees. No dispatch fees.</li></ul>
+          <a href="#contact" class="btn btn-volt btn-full">Get a Free Quote</a>
+          <div class="offer-cta" style="margin-top:12px;">Valid Mon-Fri, 7am-5pm. Mention this offer when booking.</div>
         </div>
       </div>
       <div class="offer-card">
         <div class="offer-tag"><div class="offer-label">Save</div>$75 Off</div>
         <div class="offer-body">
           <div class="offer-title">Panel Upgrade + Whole-Home Surge Protection</div>
-          <ul class="offer-list">
-            <li>Visual analysis of your panel and service capacity</li>
-            <li>Whole-home surge protector included</li>
-            <li>Code-compliant, permitted, done clean</li>
-            <li>No service call fees. No dispatch fees.</li>
-          </ul>
-          <a href="tel:+12062587504" class="btn btn-volt btn-full">Call Now &mdash; (206) 258-7504</a>
-          <div class="offer-cta" style="margin-top:12px;">Valid Mon-Fri, 7am-5pm. Mention this offer when calling.</div>
+          <ul class="offer-list"><li>Visual analysis of your panel and service capacity</li><li>Whole-home surge protector included</li><li>Code-compliant, permitted, done clean</li><li>No service call fees. No dispatch fees.</li></ul>
+          <a href="#contact" class="btn btn-volt btn-full">Get a Free Quote</a>
+          <div class="offer-cta" style="margin-top:12px;">Valid Mon-Fri, 7am-5pm. Mention this offer when booking.</div>
         </div>
       </div>
       <div class="offer-card">
         <div class="offer-tag"><div class="offer-label">Free</div>Inspection</div>
         <div class="offer-body">
           <div class="offer-title">Free Generator Hookup Inspection + Same Day</div>
-          <ul class="offer-list">
-            <li>We assess your generator setup needs</li>
-            <li>Transfer switch installation same-day available</li>
-            <li>Walk you through your most important circuits</li>
-            <li>No service call fees. No dispatch fees.</li>
-          </ul>
-          <a href="tel:+12062587504" class="btn btn-volt btn-full">Call Now &mdash; (206) 258-7504</a>
-          <div class="offer-cta" style="margin-top:12px;">Valid Mon-Fri, 7am-5pm. Mention this offer when calling.</div>
+          <ul class="offer-list"><li>We assess your generator setup needs</li><li>Transfer switch installation same-day available</li><li>Walk you through your most important circuits</li><li>No service call fees. No dispatch fees.</li></ul>
+          <a href="#contact" class="btn btn-volt btn-full">Get a Free Quote</a>
+          <div class="offer-cta" style="margin-top:12px;">Valid Mon-Fri, 7am-5pm. Mention this offer when booking.</div>
         </div>
       </div>
     </div>
@@ -677,65 +675,41 @@ footer{background:var(--ink);}
       <div class="svc-card">
         <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80')"></div>
         <div class="svc-ov"></div>
-        <div class="svc-content">
-          <div class="svc-num">02</div>
-          <div class="svc-name">Electrical Panels</div>
-          <p class="svc-desc">Full panel upgrades and replacements. Enhance capacity and safety to handle modern electrical demands with ease.</p>
-          <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
-        </div>
+        <div class="svc-content"><div class="svc-num">02</div><div class="svc-name">Electrical Panels</div><p class="svc-desc">Full panel upgrades and replacements. Enhance capacity and safety to handle modern electrical demands with ease.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
       </div>
       <div class="svc-card">
         <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=800&q=80')"></div>
         <div class="svc-ov"></div>
-        <div class="svc-content">
-          <div class="svc-num">03</div>
-          <div class="svc-name">Generator Hookups</div>
-          <p class="svc-desc">Transfer switch install and portable generator wiring. Mohammed walks you through each circuit so you're ready when the power goes out.</p>
-          <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
-        </div>
+        <div class="svc-content"><div class="svc-num">03</div><div class="svc-name">Generator Hookups</div><p class="svc-desc">Transfer switch install and portable generator wiring. Mohammed walks you through each circuit so you're ready when the power goes out.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
       </div>
       <div class="svc-card">
         <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80')"></div>
         <div class="svc-ov"></div>
-        <div class="svc-content">
-          <div class="svc-num">04</div>
-          <div class="svc-name">Attic &amp; Ceiling Fans</div>
-          <p class="svc-desc">Energy-efficient attic fans and ceiling fans installed right. Reduce heat buildup and improve air circulation year-round.</p>
-          <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
-        </div>
+        <div class="svc-content"><div class="svc-num">04</div><div class="svc-name">Attic &amp; Ceiling Fans</div><p class="svc-desc">Energy-efficient attic fans and ceiling fans installed right. Reduce heat buildup and improve air circulation year-round.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
       </div>
       <div class="svc-card">
         <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=800&q=80')"></div>
         <div class="svc-ov"></div>
-        <div class="svc-content">
-          <div class="svc-num">05</div>
-          <div class="svc-name">Dedicated Circuits</div>
-          <p class="svc-desc">Protect sensitive appliances with dedicated circuits. Stable, uninterrupted power for your kitchen, shop, office, or hot tub.</p>
-          <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
-        </div>
+        <div class="svc-content"><div class="svc-num">05</div><div class="svc-name">Dedicated Circuits</div><p class="svc-desc">Protect sensitive appliances with dedicated circuits. Stable, uninterrupted power for your kitchen, shop, office, or hot tub.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
       </div>
       <div class="svc-card">
         <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80')"></div>
         <div class="svc-ov"></div>
-        <div class="svc-content">
-          <div class="svc-num">06</div>
-          <div class="svc-name">Backup Battery Systems</div>
-          <p class="svc-desc">Home backup battery installs done right. Mohammed walks you through every detail before leaving so you know exactly how to use it.</p>
-          <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
-        </div>
+        <div class="svc-content"><div class="svc-num">06</div><div class="svc-name">Backup Battery Systems</div><p class="svc-desc">Home backup battery installs done right. Mohammed walks you through every detail before leaving so you know exactly how to use it.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VIDEO 1 — Project Walkthrough (homeowners.mp4) -->
+<!-- VIDEO 1 — homeowners.mp4 — PORTRAIT -->
 <div class="vid-section">
   <div class="container">
     <div class="vid-grid reveal">
-      <div class="vid-container">
-        <video controls preload="none" poster="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=60">
-          <source src="https://ivhxwbmlmqhqncbkjuou.supabase.co/storage/v1/object/public/dgo%20video/homeowners.mp4" type="video/mp4"/>
-        </video>
+      <div style="display:flex;justify-content:center;">
+        <div class="vid-wrap-portrait">
+          <div class="vid-badge">From the Field</div>
+          <video controls preload="metadata"><source src="https://ivhxwbmlmqhqncbkjuou.supabase.co/storage/v1/object/public/dgo%20video/homeowners.mp4" type="video/mp4"/></video>
+        </div>
       </div>
       <div class="vid-content">
         <div class="vid-eyebrow"><div class="vid-eyebrow-line"></div><span>From the Field</span></div>
@@ -746,20 +720,21 @@ footer{background:var(--ink);}
           <div class="vid-list-item"><div class="vid-list-icon"><svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>Clear explanation of what was wrong and how it was fixed</div>
           <div class="vid-list-item"><div class="vid-list-icon"><svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>The kind of work ethic your home deserves</div>
         </div>
-        <a href="tel:+12062587504" class="btn btn-volt">Call Mohammed &mdash; (206) 258-7504</a>
+        <a href="#contact" class="btn btn-volt">Get a Free Quote</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- VIDEO 2 — Surge Protection (wahomeowners.mp4) -->
+<!-- VIDEO 2 — wahomeowners.mp4 — PORTRAIT -->
 <div class="vid-section" style="background:var(--steel);">
   <div class="container">
     <div class="vid-grid flip reveal">
-      <div class="vid-container">
-        <video controls preload="none" poster="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=60">
-          <source src="https://ivhxwbmlmqhqncbkjuou.supabase.co/storage/v1/object/public/dgo%20video/wahomeowners.mp4" type="video/mp4"/>
-        </video>
+      <div style="display:flex;justify-content:center;">
+        <div class="vid-wrap-portrait">
+          <div class="vid-badge">Protect Your Home</div>
+          <video controls preload="metadata"><source src="https://ivhxwbmlmqhqncbkjuou.supabase.co/storage/v1/object/public/dgo%20video/wahomeowners.mp4" type="video/mp4"/></video>
+        </div>
       </div>
       <div class="vid-content">
         <div class="vid-eyebrow"><div class="vid-eyebrow-line"></div><span>Protect Your Home</span></div>
@@ -784,22 +759,10 @@ footer{background:var(--ink);}
       <h2 class="sec-title">Electrical <span class="ab">Done Right</span></h2>
     </div>
     <div class="photo-grid reveal">
-      <div class="photo-tile tall">
-        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80" alt="Panel upgrade Seattle electrician"/>
-        <div class="photo-tile-label">Panel Upgrade</div>
-      </div>
-      <div class="photo-tile">
-        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="EV charger install Seattle"/>
-        <div class="photo-tile-label">EV Charger Install</div>
-      </div>
-      <div class="photo-tile">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Home wiring Seattle electrician"/>
-        <div class="photo-tile-label">Home Wiring</div>
-      </div>
-      <div class="photo-tile tall">
-        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&q=80" alt="Licensed electrician Seattle"/>
-        <div class="photo-tile-label">Licensed Electrician</div>
-      </div>
+      <div class="photo-tile tall"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80" alt="Panel upgrade Seattle"/><div class="photo-tile-label">Panel Upgrade</div></div>
+      <div class="photo-tile"><img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="EV charger install"/><div class="photo-tile-label">EV Charger Install</div></div>
+      <div class="photo-tile"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Home wiring"/><div class="photo-tile-label">Home Wiring</div></div>
+      <div class="photo-tile tall"><img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&q=80" alt="Licensed electrician Seattle"/><div class="photo-tile-label">Licensed Electrician</div></div>
     </div>
   </div>
 </section>
@@ -840,11 +803,7 @@ footer{background:var(--ink);}
       <div class="rating-big">5.0</div>
       <div>
         <div class="rating-stars-row"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
-        <div class="rat-p">
-          <span class="rat-badge">78 Google Reviews</span>
-          <span class="rat-badge">277 Thumbtack</span>
-          <span class="rat-badge">Nextdoor Top 10</span>
-        </div>
+        <div class="rat-p"><span class="rat-badge">78 Google Reviews</span><span class="rat-badge">277 Thumbtack</span><span class="rat-badge">Nextdoor Top 10</span></div>
         <div style="font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.24);margin-top:6px;">Spark Pro Electric LLC &middot; Seattle, WA</div>
       </div>
       <div class="rat-right">Verified</div>
@@ -865,18 +824,18 @@ footer{background:var(--ink);}
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
-        <div class="about-img-frame">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Spark Pro Electric team Seattle"/>
-        </div>
+        <div class="about-img-frame"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Spark Pro Electric team Seattle"/></div>
         <div class="about-badge"><span>5.0&#9733;</span><small>350+ Verified Reviews</small></div>
       </div>
       <div class="reveal">
         <span class="lbl">About Spark Pro</span>
         <h2 class="about-title">Safe Work.<br><span class="av">Done</span><br><span class="ab">Right.</span></h2>
-        <p class="about-body">Spark Pro Electric LLC is led by Mohammed Ali, a family-owned electrical contractor with 29 years of hands-on experience. You're not just hiring an electrician, you're partnering with someone who treats every home like their own.</p>
-        <p class="about-body">Clear communication, on-time arrivals, clean code-compliant work built to last. EV charger installs, panel upgrades, surge protection, generators, and backup systems. Every job done right the first time.</p>
+        <p class="about-body">Spark Pro Electric LLC is a family-owned and independent electrical company built on 29 years of hands-on experience and family values. Led by Mohammed Ali, our team takes pride in treating every home like it's our own — providing honest guidance, quality workmanship, and dependable residential electrical solutions you can trust.</p>
+        <p class="about-body">Our commitment to doing things the right way has earned us recognition as one of the Top 10 Best Electricians on Nextdoor and Thumbtack, along with the Top Pro Award in 2023, 2024, and 2025. These honors mean a lot to us because they come directly from the families and homeowners we serve.</p>
         <div style="display:flex;flex-wrap:wrap;margin-bottom:18px;">
-          <div class="about-award"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Thumbtack Top Pro</span></div>
+          <div class="about-award"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Top Pro Award 2023</span></div>
+          <div class="about-award"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Top Pro Award 2024</span></div>
+          <div class="about-award"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Top Pro Award 2025</span></div>
           <div class="about-award"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Nextdoor Top 10 Electrician</span></div>
         </div>
         <div class="stats-row">
@@ -912,6 +871,28 @@ footer{background:var(--ink);}
   </div>
 </section>
 
+<!-- GALLERY -->
+<section class="sec sec-off" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="lbl">Project Gallery</span>
+      <h2 class="sec-title">Our <span class="ab">Work</span></h2>
+      <p class="sec-sub">Real jobs from real Seattle homes. Click any photo for a closer look.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item wide" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/fc2a0ce4-fd43-4243-b9e4-744a72f144ed" alt="EV Charger Installation" onerror="this.src='https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1000&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>EV Charger Installation</h4><p>Level 2 wall charger install in Seattle garage. Same day.</p></div></div>
+      <div class="gallery-item" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/98ab85d6-eb12-489d-94b3-ad5a859d1f1e" alt="Rivian EV Charger" onerror="this.src='https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>Rivian Wall Connector</h4><p>48-amp Level 2 dedicated circuit install.</p></div></div>
+      <div class="gallery-item" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/1547b405-2d2a-4650-bf9a-82e5a7d4d5f9" alt="EcoFlow Smart Panel" onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>EcoFlow Smart Home Panel 2</h4><p>Smart whole-home energy management. Auto-backup, solar-ready.</p></div></div>
+      <div class="gallery-item" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/ddb4138a-1f26-4cf5-836c-0d449136eb16" alt="Breaker Testing" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>Panel Diagnostics</h4><p>Breaker testing and full panel inspection before upgrade.</p></div></div>
+      <div class="gallery-item wide" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/ae6757fe-8554-494e-aafd-a5bbf08097de" alt="Kitchen Lighting" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>Kitchen Lighting Install</h4><p>Recessed lighting and fixture wiring for full kitchen remodel.</p></div></div>
+      <div class="gallery-item" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/e3025054-0a6b-4560-9142-eba2ef54e1bd" alt="Attic Fan" onerror="this.src='https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>Attic Fan Installation</h4><p>Electric attic fan with auto thermostat. Reduces heat year-round.</p></div></div>
+      <div class="gallery-item" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/5b6d0622-765e-42ca-8e3f-806fa95ea09b" alt="Garage Door Opener" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>Garage Door Opener Install</h4><p>Dedicated circuit and outlet for new opener.</p></div></div>
+      <div class="gallery-item" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/4f611457-c8a6-4044-a294-356b9beb9451" alt="Custom Mirror Install" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>Custom Mirror Install</h4><p>Backlit mirror wiring with dedicated GFCI circuit.</p></div></div>
+      <div class="gallery-item" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/d8654d9d-7c66-4246-81f1-61c6daa9c292" alt="Rivian Wall Connector" onerror="this.src='https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>Rivian Wall Connector</h4><p>Up to 48A, 25 mi/hr range. Wi-Fi connected. Fully installed.</p></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="sec sec-white" id="faq">
   <div class="container">
@@ -921,26 +902,11 @@ footer{background:var(--ink);}
       <p class="sec-sub">Everything you need to know before you call. Still have questions? Mohammed is happy to talk through your project.</p>
     </div>
     <div class="faq-wrap reveal">
-      <div class="faq-item open">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What electrical services does Spark Pro Electric offer?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
-        <div class="faq-a">We specialize in residential and commercial electrical services including panel upgrades, EV charger installation, whole-home surge protection, dedicated circuits, attic and exhaust fan installation, ceiling fan installs, generator hookups, backup battery systems, hot tub wiring, and GFCI outlets. Every install is safe, code-compliant, and done clean.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I know if my electrical panel needs an upgrade?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
-        <div class="faq-a">Common signs include frequently tripped breakers, flickering lights, a warm panel, a home over 30 years old, or adding high-demand appliances like an EV charger or hot tub. If your panel is under 100 amps or still uses fuses, it likely needs an upgrade. Call Mohammed and he'll walk you through it over the phone before scheduling anything.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I install an EV charger at home, and how long does it take?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
-        <div class="faq-a">Yes, and Spark Pro specializes in this. Most Level 2 EV charger installs take 2 to 4 hours. Mohammed will ask about your panel capacity, garage layout, and EV brand before showing up so he arrives fully equipped. Most jobs are done in a single visit. We handle Tesla Wall Connectors, ChargePoint, JuiceBox, NEMA 14-50 outlets, and all major EV brands.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What are dedicated circuits, and why are they important?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
-        <div class="faq-a">A dedicated circuit powers only one appliance, protecting it from fluctuations caused by other devices. Required for EV chargers, hot tubs, refrigerators, and high-draw equipment. Spark Pro installs dedicated circuits for all home and commercial applications.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you handle permits for electrical work?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
-        <div class="faq-a">Yes. Spark Pro handles all permitting for jobs that require it. Clients call this out specifically in their reviews. Every permitted job is inspected and signed off to code, so you have zero issues if you ever sell your home.</div>
-      </div>
+      <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What electrical services does Spark Pro Electric offer?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div><div class="faq-a">We specialize in residential and commercial electrical services including panel upgrades, EV charger installation, whole-home surge protection, dedicated circuits, attic and exhaust fan installation, ceiling fan installs, generator hookups, backup battery systems, hot tub wiring, and GFCI outlets. Every install is safe, code-compliant, and done clean.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I know if my electrical panel needs an upgrade?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div><div class="faq-a">Common signs include frequently tripped breakers, flickering lights, a warm panel, a home over 30 years old, or adding high-demand appliances like an EV charger or hot tub. If your panel is under 100 amps or still uses fuses, it likely needs an upgrade. Call Mohammed and he'll walk you through it over the phone before scheduling anything.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I install an EV charger at home, and how long does it take?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div><div class="faq-a">Yes, and Spark Pro specializes in this. Most Level 2 EV charger installs take 2 to 4 hours. Mohammed will ask about your panel capacity, garage layout, and EV brand before showing up so he arrives fully equipped. Most jobs are done in a single visit. We handle Tesla Wall Connectors, ChargePoint, JuiceBox, NEMA 14-50 outlets, and all major EV brands.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What are dedicated circuits, and why are they important?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div><div class="faq-a">A dedicated circuit powers only one appliance, protecting it from fluctuations caused by other devices. Required for EV chargers, hot tubs, refrigerators, and high-draw equipment. Spark Pro installs dedicated circuits for all home and commercial applications.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you handle permits for electrical work?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div><div class="faq-a">Yes. Spark Pro handles all permitting for jobs that require it. Clients call this out specifically in their reviews. Every permitted job is inspected and signed off to code, so you have zero issues if you ever sell your home.</div></div>
     </div>
   </div>
 </section>
@@ -954,30 +920,21 @@ footer{background:var(--ink);}
       <p class="sec-sub">Spark Pro Electric serves homeowners and businesses throughout greater Seattle. A few of the cities we cover:</p>
     </div>
     <div class="areas-grid reveal">
-      <div class="area-tag">Seattle, WA</div><div class="area-tag">Bellevue, WA</div>
-      <div class="area-tag">Redmond, WA</div><div class="area-tag">Kirkland, WA</div>
-      <div class="area-tag">Bothell, WA</div><div class="area-tag">Woodinville, WA</div>
-      <div class="area-tag">Sammamish, WA</div><div class="area-tag">Issaquah, WA</div>
-      <div class="area-tag">Renton, WA</div><div class="area-tag">Kent, WA</div>
-      <div class="area-tag">Federal Way, WA</div><div class="area-tag">Auburn, WA</div>
-      <div class="area-tag">Burien, WA</div><div class="area-tag">SeaTac, WA</div>
-      <div class="area-tag">Des Moines, WA</div><div class="area-tag">Shoreline, WA</div>
-      <div class="area-tag">Kenmore, WA</div><div class="area-tag">Mill Creek, WA</div>
-      <div class="area-tag">Everett, WA</div><div class="area-tag">Snohomish, WA</div>
-      <div class="area-tag">Mercer Island, WA</div><div class="area-tag">Clyde Hill, WA</div>
-      <div class="area-tag">Maple Valley, WA</div><div class="area-tag">Covington, WA</div>
-      <div class="area-tag">Puyallup, WA</div><div class="area-tag">Tacoma, WA</div>
-      <div class="area-tag">Factoria, WA</div><div class="area-tag">Newcastle, WA</div>
-      <div class="area-tag">Fife, WA</div><div class="area-tag">And More</div>
+      <div class="area-tag">Seattle, WA</div><div class="area-tag">Bellevue, WA</div><div class="area-tag">Redmond, WA</div><div class="area-tag">Kirkland, WA</div><div class="area-tag">Bothell, WA</div>
+      <div class="area-tag">Woodinville, WA</div><div class="area-tag">Sammamish, WA</div><div class="area-tag">Issaquah, WA</div><div class="area-tag">Renton, WA</div><div class="area-tag">Kent, WA</div>
+      <div class="area-tag">Federal Way, WA</div><div class="area-tag">Auburn, WA</div><div class="area-tag">Burien, WA</div><div class="area-tag">SeaTac, WA</div><div class="area-tag">Des Moines, WA</div>
+      <div class="area-tag">Shoreline, WA</div><div class="area-tag">Kenmore, WA</div><div class="area-tag">Mill Creek, WA</div><div class="area-tag">Everett, WA</div><div class="area-tag">Snohomish, WA</div>
+      <div class="area-tag">Mercer Island, WA</div><div class="area-tag">Clyde Hill, WA</div><div class="area-tag">Maple Valley, WA</div><div class="area-tag">Covington, WA</div><div class="area-tag">Puyallup, WA</div>
+      <div class="area-tag">Tacoma, WA</div><div class="area-tag">Factoria, WA</div><div class="area-tag">Newcastle, WA</div><div class="area-tag">Fife, WA</div><div class="area-tag">And More</div>
     </div>
     <div style="text-align:center;margin-top:30px;">
       <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px;">Not seeing your city? Call us. Chances are we cover your area.</p>
-      <a href="tel:+12062587504" class="btn btn-volt">Call (206) 258-7504</a>
+      <a href="#contact" class="btn btn-volt">Get a Free Quote</a>
     </div>
   </div>
 </section>
 
-<!-- EV VIDEO CTA SECTION — Avoidchargingstress.mp4 -->
+<!-- EV VIDEO — Avoidchargingstress.mp4 — PORTRAIT -->
 <section class="ev-section" id="ev-video">
   <div class="container">
     <div class="ev-grid">
@@ -990,16 +947,13 @@ footer{background:var(--ink);}
           <div class="vid-list-item"><div class="vid-list-icon"><svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>Most installs done in 2 to 4 hours, same day</div>
           <div class="vid-list-item"><div class="vid-list-icon"><svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>All EV brands: Tesla, Ford, GM, BMW, Rivian, and more</div>
         </div>
-        <a href="tel:+12062587504" class="btn btn-volt btn-lg">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Book Your EV Charger Install
-        </a>
+        <a href="#contact" class="btn btn-volt btn-lg">Book Your EV Charger Install</a>
       </div>
-      <div class="ev-vid-wrap reveal">
-        <div class="ev-vid-badge">EV Charger Install</div>
-        <video controls preload="none" poster="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=60">
-          <source src="https://ivhxwbmlmqhqncbkjuou.supabase.co/storage/v1/object/public/dgo%20video/Avoidchargingstress.mp4" type="video/mp4"/>
-        </video>
+      <div style="display:flex;justify-content:center;">
+        <div class="ev-vid-wrap">
+          <div class="ev-vid-badge">EV Charger Install</div>
+          <video controls preload="metadata"><source src="https://ivhxwbmlmqhqncbkjuou.supabase.co/storage/v1/object/public/dgo%20video/Avoidchargingstress.mp4" type="video/mp4"/></video>
+        </div>
       </div>
     </div>
   </div>
@@ -1012,17 +966,13 @@ footer{background:var(--ink);}
       <div class="reveal">
         <span class="lbl">Get Started</span>
         <h2 class="contact-title">Get Your<br><span class="av">Free</span><br><span class="ab">Estimate</span></h2>
-        <p class="contact-body">Need an EV charger this week? Ready to upgrade your panel? Call Mohammed directly and get an honest quote fast. Most jobs scheduled within days.</p>
+        <p class="contact-body">Need an EV charger this week? Ready to upgrade your panel? Fill out the form and Mohammed will get back to you fast. Most jobs scheduled within days.</p>
         <div class="ci">
-          <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ci-lbl">Call Mohammed</div><div class="ci-val"><a href="tel:+12062587504">(206) 258-7504</a></div></div></div>
-          <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-lbl">Email</div><div class="ci-val"><a href="mailto:sparkproelectricllc@gmail.com">sparkproelectricllc@gmail.com</a></div></div></div>
+          <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ci-lbl">Phone</div><div class="ci-val">(206) 258-7504</div></div></div>
+          <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-lbl">Email</div><div class="ci-val">sparkproelectricllc@gmail.com</div></div></div>
           <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ci-lbl">Service Area</div><div class="ci-val">Greater Seattle &middot; King County &amp; Beyond</div></div></div>
           <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="ci-lbl">Response Time</div><div class="ci-val">Quotes within 24 hours</div></div></div>
         </div>
-        <a href="tel:+12062587504" class="btn btn-volt">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call Now &mdash; (206) 258-7504
-        </a>
       </div>
       <div class="cform reveal">
         <div class="cform-head"><h3>Request a Free Estimate</h3><p>Fast response &middot; No obligation &middot; Mohammed responds direct</p></div>
@@ -1062,12 +1012,12 @@ footer{background:var(--ink);}
   </div>
 </section>
 
+<!-- FOOTER CTA -->
 <div class="footer-cta">
   <div class="container">
     <div class="footer-cta-inner">
-      <div class="footer-cta-txt"><h4>Ready? Call Mohammed Direct.</h4><p>Free estimate &middot; Fast scheduling &middot; Family owned &middot; Seattle, WA</p></div>
+      <div class="footer-cta-txt"><h4>Ready to Get Started?</h4><p>Free estimate &middot; Family owned &middot; Seattle, WA</p></div>
       <div class="footer-cta-btns">
-        <a href="tel:+12062587504" class="btn btn-outline-w"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(206) 258-7504</a>
         <a href="#contact" class="btn btn-volt">Get Free Quote</a>
       </div>
     </div>
@@ -1108,8 +1058,8 @@ footer{background:var(--ink);}
         <div>
           <div class="footer-col-title">Contact</div>
           <ul class="footer-contacts">
-            <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+12062587504">(206) 258-7504</a></li>
-            <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:sparkproelectricllc@gmail.com">sparkproelectricllc@gmail.com</a></li>
+            <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(206) 258-7504</span></li>
+            <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>sparkproelectricllc@gmail.com</span></li>
             <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Greater Seattle Area, WA</span></li>
             <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Quotes within 24 hours</span></li>
           </ul>
@@ -1122,6 +1072,15 @@ footer{background:var(--ink);}
     </div>
   </div>
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lbOverlay" onclick="closeLb(event)">
+  <div class="lb-box" id="lbBox">
+    <button class="lb-close" onclick="closeLb()">&times;</button>
+    <img id="lbImg" src="" alt=""/>
+    <div class="lb-info"><h4 id="lbTitle"></h4><p id="lbDesc"></p></div>
+  </div>
+</div>
 
 <script>
 // Float CTA
@@ -1158,7 +1117,26 @@ function toggleFaq(btn){
   if(!wasOpen)item.classList.add('open');
 }
 
-// Scroll reveal
+// Gallery lightbox
+function openLb(el){
+  var img=el.querySelector('img'),h4=el.querySelector('.gallery-caption h4'),p=el.querySelector('.gallery-caption p');
+  if(!img)return;
+  document.getElementById('lbImg').src=img.src;
+  document.getElementById('lbImg').alt=img.alt;
+  document.getElementById('lbTitle').textContent=h4?h4.textContent:'';
+  document.getElementById('lbDesc').textContent=p?p.textContent:'';
+  document.getElementById('lbOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(e){
+  if(e&&e.target!==document.getElementById('lbOverlay')&&!e.target.classList.contains('lb-close'))return;
+  document.getElementById('lbOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+// Scroll reveal — default visible, only animate when JS runs
+document.body.classList.add('js-loaded');
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 </script>
