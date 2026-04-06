@@ -36,12 +36,15 @@ img{display:block;max-width:100%;height:auto;}
 .btn-lg{padding:16px 34px;font-size:.88rem;}
 
 /* DEMO BADGE — red */
-.demo-badge{position:fixed;top:70px;right:0;z-index:9999;background:#dc2626;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.56rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:7px 12px 7px 10px;border-radius:8px 0 0 8px;box-shadow:-2px 2px 12px rgba(220,38,38,.4);}
+.demo-badge{position:fixed;bottom:80px;right:0;z-index:9999;background:#dc2626;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.56rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:7px 12px 7px 10px;border-radius:8px 0 0 8px;box-shadow:-2px 2px 12px rgba(220,38,38,.4);}
 
 /* ANNOUNCE */
-.announce{background:var(--volt);padding:9px 20px;text-align:center;}
-.announce p{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.6);margin:0;}
-.announce span{color:var(--ink);font-weight:800;}
+.announce{background:var(--volt);padding:8px 20px;text-align:center;overflow:hidden;}
+.announce-desktop{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.6);}
+.announce-desktop span{color:var(--ink);font-weight:800;}
+.announce-mobile{display:none;position:relative;height:1.3em;}
+.announce-mobile .tick{position:absolute;inset:0;font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.7);opacity:0;transition:opacity .4s ease;text-align:center;}
+.announce-mobile .tick.active{opacity:1;}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px solid var(--volt);}
@@ -368,8 +371,31 @@ footer{background:var(--ink);}
 .footer-dev a{color:rgba(255,255,255,.22);}
 .footer-dev a:hover{color:var(--volt-lt);}
 
-.float-cta{position:fixed;bottom:22px;right:22px;z-index:150;display:none;}
-.float-cta.vis{display:block;}
+/* FLOAT CHAT WIDGET */
+.float-cta{position:fixed;bottom:24px;right:24px;z-index:500;display:none;flex-direction:column;align-items:flex-end;gap:10px;}
+.float-cta.vis{display:flex;}
+
+/* Pulse ring */
+@keyframes ring-pulse{0%{transform:scale(1);opacity:.7;}70%{transform:scale(1.55);opacity:0;}100%{transform:scale(1.55);opacity:0;}}
+@keyframes float-bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+
+/* Bubble message — hidden by default, shown via .show class */
+.float-bubble{background:#fff;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;padding:10px 16px;border-radius:16px 16px 4px 16px;box-shadow:0 6px 28px rgba(0,0,0,.18);white-space:nowrap;position:relative;transform:scale(.85) translateY(6px);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s ease;}
+.float-bubble.show{transform:scale(1) translateY(0);opacity:1;pointer-events:auto;}
+.float-bubble::after{content:'';position:absolute;bottom:-8px;right:18px;border:5px solid transparent;border-top-color:#fff;border-bottom:none;}
+.float-bubble .bubble-dot{display:inline-block;width:7px;height:7px;background:#22c55e;border-radius:50%;margin-right:7px;position:relative;top:0px;}
+.float-bubble .bubble-dot::before{content:'';position:absolute;inset:-3px;background:#22c55e;border-radius:50%;animation:ring-pulse 1.6s ease-out infinite;}
+
+/* Main button */
+.float-btn-wrap{position:relative;display:inline-flex;align-items:center;justify-content:center;}
+.float-btn-ring{position:absolute;inset:-6px;background:var(--volt);border-radius:14px 0 14px 0;opacity:.4;animation:ring-pulse 2s ease-out infinite;}
+.float-btn-ring2{position:absolute;inset:-12px;background:var(--volt);border-radius:16px 0 16px 0;opacity:.2;animation:ring-pulse 2s ease-out .5s infinite;}
+.float-btn{display:inline-flex;align-items:center;gap:9px;background:var(--volt);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:14px 22px;border-radius:14px 0 14px 0;border:none;cursor:pointer;text-decoration:none;box-shadow:0 8px 28px rgba(245,196,0,.5);animation:float-bounce 3s ease-in-out infinite;transition:transform .2s ease,box-shadow .2s ease;}
+.float-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 36px rgba(245,196,0,.6);}
+.float-btn svg{flex-shrink:0;}
+.float-dismiss{display:none;position:absolute;top:-8px;right:-8px;width:20px;height:20px;background:var(--ink);border-radius:50%;border:2px solid var(--volt);cursor:pointer;font-size:.7rem;color:rgba(255,255,255,.7);align-items:center;justify-content:center;line-height:1;}
+.float-cta.vis .float-dismiss{display:flex;}
+.float-dismiss:hover{background:#333;}
 .reveal{opacity:1;transform:none;transition:opacity .62s ease,transform .62s ease;}
 .js-loaded .reveal{opacity:0;transform:translateY(26px);}
 .js-loaded .reveal.in{opacity:1;transform:none;}
@@ -397,7 +423,9 @@ footer{background:var(--ink);}
 .gallery-item.wide{grid-column:auto;}
 }
 @media(max-width:768px){
+.announce-mobile{display:block !important;}
 .nav-links,.nav-right .btn:first-of-type{display:none;}
+.nav-brand-sub{display:none;}
 .hamburger{display:flex;}
 .sec{padding:60px 0;}
 .container{padding:0 18px;}
@@ -447,10 +475,18 @@ footer{background:var(--ink);}
 <div class="demo-badge">Live Demo</div>
 
 <div class="float-cta" id="floatCta">
-  <a href="#contact" class="btn btn-volt">
-    <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-    Free Quote
-  </a>
+  <div class="float-bubble" id="floatBubble">
+    <span class="bubble-dot"></span><span id="bubbleMsg">Hey! Need an electrician?</span>
+  </div>
+  <div class="float-btn-wrap">
+    <div class="float-btn-ring"></div>
+    <div class="float-btn-ring2"></div>
+    <a href="#contact" class="float-btn" onclick="hideBubble()">
+      <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Get a Free Quote
+    </a>
+    <button class="float-dismiss" onclick="dismissFloat()" title="Dismiss">&times;</button>
+  </div>
 </div>
 
 <div class="drawer" id="drawer">
@@ -465,7 +501,13 @@ footer{background:var(--ink);}
 </div>
 
 <div class="announce">
-  <p>EV Charger Install &nbsp;&#9889;&nbsp; <span>Seattle, WA</span> &nbsp;&#9889;&nbsp; 78 Google Reviews &nbsp;&#9889;&nbsp; 277 Thumbtack Reviews &nbsp;&#9889;&nbsp; Family Owned &nbsp;&#9889;&nbsp; 29 Years Experience</p>
+  <p class="announce-desktop">EV Charger Install &nbsp;&#9889;&nbsp; <span>Seattle, WA</span> &nbsp;&#9889;&nbsp; 78 Google Reviews &nbsp;&#9889;&nbsp; Family Owned &nbsp;&#9889;&nbsp; 29 Years Experience</p>
+  <div class="announce-mobile" id="tickerWrap">
+    <span class="tick active">&#9889; Seattle, WA</span>
+    <span class="tick">&#9733; 78 Google Reviews</span>
+    <span class="tick">&#9889; Licensed &amp; Insured</span>
+    <span class="tick">&#10084; Family Owned &middot; 29 Years</span>
+  </div>
 </div>
 
 <nav id="mainNav">
@@ -662,7 +704,7 @@ footer{background:var(--ink);}
     </div>
     <div class="svc-grid">
       <div class="svc-card featured">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1400&q=80')"></div>
+        <div class="svc-img" style="background-image:url('https://raw.githubusercontent.com/user-attachments/assets/fc2a0ce4-fd43-4243-b9e4-744a72f144ed')"></div>
         <div class="svc-ov"></div>
         <div class="svc-tag">Top Service</div>
         <div class="svc-content">
@@ -673,7 +715,7 @@ footer{background:var(--ink);}
         </div>
       </div>
       <div class="svc-card">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80')"></div>
+        <div class="svc-img" style="background-image:url('https://raw.githubusercontent.com/user-attachments/assets/ddb4138a-1f26-4cf5-836c-0d449136eb16')"></div>
         <div class="svc-ov"></div>
         <div class="svc-content"><div class="svc-num">02</div><div class="svc-name">Electrical Panels</div><p class="svc-desc">Full panel upgrades and replacements. Enhance capacity and safety to handle modern electrical demands with ease.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
       </div>
@@ -683,17 +725,17 @@ footer{background:var(--ink);}
         <div class="svc-content"><div class="svc-num">03</div><div class="svc-name">Generator Hookups</div><p class="svc-desc">Transfer switch install and portable generator wiring. Mohammed walks you through each circuit so you're ready when the power goes out.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
       </div>
       <div class="svc-card">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80')"></div>
+        <div class="svc-img" style="background-image:url('https://raw.githubusercontent.com/user-attachments/assets/e3025054-0a6b-4560-9142-eba2ef54e1bd')"></div>
         <div class="svc-ov"></div>
         <div class="svc-content"><div class="svc-num">04</div><div class="svc-name">Attic &amp; Ceiling Fans</div><p class="svc-desc">Energy-efficient attic fans and ceiling fans installed right. Reduce heat buildup and improve air circulation year-round.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
       </div>
       <div class="svc-card">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=800&q=80')"></div>
+        <div class="svc-img" style="background-image:url('https://raw.githubusercontent.com/user-attachments/assets/ae6757fe-8554-494e-aafd-a5bbf08097de')"></div>
         <div class="svc-ov"></div>
         <div class="svc-content"><div class="svc-num">05</div><div class="svc-name">Dedicated Circuits</div><p class="svc-desc">Protect sensitive appliances with dedicated circuits. Stable, uninterrupted power for your kitchen, shop, office, or hot tub.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
       </div>
       <div class="svc-card">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80')"></div>
+        <div class="svc-img" style="background-image:url('https://raw.githubusercontent.com/user-attachments/assets/1547b405-2d2a-4650-bf9a-82e5a7d4d5f9')"></div>
         <div class="svc-ov"></div>
         <div class="svc-content"><div class="svc-num">06</div><div class="svc-name">Backup Battery Systems</div><p class="svc-desc">Home backup battery installs done right. Mohammed walks you through every detail before leaving so you know exactly how to use it.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
       </div>
@@ -759,10 +801,10 @@ footer{background:var(--ink);}
       <h2 class="sec-title">Electrical <span class="ab">Done Right</span></h2>
     </div>
     <div class="photo-grid reveal">
-      <div class="photo-tile tall"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80" alt="Panel upgrade Seattle"/><div class="photo-tile-label">Panel Upgrade</div></div>
-      <div class="photo-tile"><img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="EV charger install"/><div class="photo-tile-label">EV Charger Install</div></div>
-      <div class="photo-tile"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Home wiring"/><div class="photo-tile-label">Home Wiring</div></div>
-      <div class="photo-tile tall"><img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&q=80" alt="Licensed electrician Seattle"/><div class="photo-tile-label">Licensed Electrician</div></div>
+      <div class="photo-tile tall"><img src="https://raw.githubusercontent.com/user-attachments/assets/fc2a0ce4-fd43-4243-b9e4-744a72f144ed" alt="EV Charger Install Seattle" onerror="this.src='https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80'"/><div class="photo-tile-label">EV Charger Install</div></div>
+      <div class="photo-tile"><img src="https://raw.githubusercontent.com/user-attachments/assets/ddb4138a-1f26-4cf5-836c-0d449136eb16" alt="Panel Diagnostics Seattle" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'"/><div class="photo-tile-label">Panel Diagnostics</div></div>
+      <div class="photo-tile"><img src="https://raw.githubusercontent.com/user-attachments/assets/ae6757fe-8554-494e-aafd-a5bbf08097de" alt="Kitchen Lighting Install" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80'"/><div class="photo-tile-label">Kitchen Lighting</div></div>
+      <div class="photo-tile tall"><img src="https://raw.githubusercontent.com/user-attachments/assets/98ab85d6-eb12-489d-94b3-ad5a859d1f1e" alt="Rivian EV Charger Seattle" onerror="this.src='https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80'"/><div class="photo-tile-label">Rivian Wall Connector</div></div>
     </div>
   </div>
 </section>
@@ -889,6 +931,7 @@ footer{background:var(--ink);}
       <div class="gallery-item" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/5b6d0622-765e-42ca-8e3f-806fa95ea09b" alt="Garage Door Opener" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>Garage Door Opener Install</h4><p>Dedicated circuit and outlet for new opener.</p></div></div>
       <div class="gallery-item" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/4f611457-c8a6-4044-a294-356b9beb9451" alt="Custom Mirror Install" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>Custom Mirror Install</h4><p>Backlit mirror wiring with dedicated GFCI circuit.</p></div></div>
       <div class="gallery-item" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/d8654d9d-7c66-4246-81f1-61c6daa9c292" alt="Rivian Wall Connector" onerror="this.src='https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>Rivian Wall Connector</h4><p>Up to 48A, 25 mi/hr range. Wi-Fi connected. Fully installed.</p></div></div>
+      <div class="gallery-item wide" onclick="openLb(this)"><img src="https://raw.githubusercontent.com/user-attachments/assets/24483b89-68a6-4a84-985c-82b758e30252" alt="Electrical Work Seattle" onerror="this.src='https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80'"/><div class="gallery-ov"></div><div class="gallery-caption"><h4>On The Job</h4><p>Quality workmanship on every residential electrical project.</p></div></div>
     </div>
   </div>
 </section>
@@ -969,7 +1012,7 @@ footer{background:var(--ink);}
         <p class="contact-body">Need an EV charger this week? Ready to upgrade your panel? Fill out the form and Mohammed will get back to you fast. Most jobs scheduled within days.</p>
         <div class="ci">
           <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ci-lbl">Phone</div><div class="ci-val">(206) 258-7504</div></div></div>
-          <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-lbl">Email</div><div class="ci-val">sparkproelectricllc@gmail.com</div></div></div>
+          <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-lbl">Email</div><div class="ci-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c5f5c4d5e475c5e434940494f585e454f40404f6c4b414d4540024f4341">[email&#160;protected]</a></div></div></div>
           <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ci-lbl">Service Area</div><div class="ci-val">Greater Seattle &middot; King County &amp; Beyond</div></div></div>
           <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="ci-lbl">Response Time</div><div class="ci-val">Quotes within 24 hours</div></div></div>
         </div>
@@ -1059,7 +1102,7 @@ footer{background:var(--ink);}
           <div class="footer-col-title">Contact</div>
           <ul class="footer-contacts">
             <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(206) 258-7504</span></li>
-            <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>sparkproelectricllc@gmail.com</span></li>
+            <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3b0b3a2b1a8b3b1aca6afa6a0b7b1aaa0afafa083a4aea2aaafeda0acae">[email&#160;protected]</a></span></li>
             <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Greater Seattle Area, WA</span></li>
             <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Quotes within 24 hours</span></li>
           </ul>
@@ -1082,10 +1125,74 @@ footer{background:var(--ink);}
   </div>
 </div>
 
-<script>
-// Float CTA
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+// Rotating announce ticker for mobile
+(function(){
+  var ticks = document.querySelectorAll('#tickerWrap .tick');
+  if (!ticks.length) return;
+  var cur = 0;
+  setInterval(function(){
+    ticks[cur].classList.remove('active');
+    cur = (cur + 1) % ticks.length;
+    ticks[cur].classList.add('active');
+  }, 2800);
+})();
+</script><script>
+// Float CTA — chat widget
 var hero=document.getElementById('hero'),floatCta=document.getElementById('floatCta');
-window.addEventListener('scroll',function(){floatCta.className=hero.getBoundingClientRect().bottom<0?'float-cta vis':'float-cta';},{passive:true});
+var floatDismissed=false,bubbleShown=false;
+var bubbleMsgs=['Hey! Need an electrician?','Free estimates &mdash; fast response!','EV charger this week? Let's talk.','5.0 stars &mdash; 350+ happy customers','Top Pro 3 years running &#9733;'];
+var bubbleIdx=0;
+
+function showBubble(){
+  var b=document.getElementById('floatBubble');
+  if(!b||floatDismissed)return;
+  b.style.display='';
+  setTimeout(function(){b.classList.add('show');},20);
+  // rotate messages every 4s
+  if(!bubbleShown){
+    bubbleShown=true;
+    setInterval(function(){
+      if(floatDismissed)return;
+      var msg=document.getElementById('bubbleMsg');
+      var b2=document.getElementById('floatBubble');
+      if(!msg||!b2)return;
+      b2.classList.remove('show');
+      setTimeout(function(){
+        bubbleIdx=(bubbleIdx+1)%bubbleMsgs.length;
+        msg.innerHTML=bubbleMsgs[bubbleIdx];
+        b2.classList.add('show');
+      },350);
+    },4000);
+  }
+  // auto-hide after 12s of no interaction
+  setTimeout(function(){
+    if(floatDismissed)return;
+    var b3=document.getElementById('floatBubble');
+    if(b3){b3.classList.remove('show');setTimeout(function(){b3.style.display='none';},400);}
+  },12000);
+}
+
+window.addEventListener('scroll',function(){
+  if(floatDismissed)return;
+  var past=hero.getBoundingClientRect().bottom<0;
+  if(past){
+    floatCta.classList.add('vis');
+    if(!bubbleShown)setTimeout(showBubble,800);
+  } else {
+    floatCta.classList.remove('vis');
+  }
+},{passive:true});
+
+function hideBubble(){
+  var b=document.getElementById('floatBubble');
+  if(b){b.classList.remove('show');setTimeout(function(){b.style.display='none';},350);}
+}
+function dismissFloat(){
+  floatDismissed=true;
+  hideBubble();
+  setTimeout(function(){floatCta.classList.remove('vis');},400);
+}
 
 // Hamburger
 var ham=document.getElementById('hamburger'),drawer=document.getElementById('drawer'),dclose=document.getElementById('drawerClose');
@@ -1139,6 +1246,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();})
 document.body.classList.add('js-loaded');
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+// Rotating announce ticker for mobile
+(function(){
+  var ticks=document.querySelectorAll('#tickerWrap .tick');
+  if(!ticks.length)return;
+  var cur=0;
+  setInterval(function(){
+    ticks[cur].classList.remove('active');
+    cur=(cur+1)%ticks.length;
+    ticks[cur].classList.add('active');
+  },2800);
+})();
 </script>
 </body>
 </html>
